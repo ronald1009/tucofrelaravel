@@ -5,14 +5,14 @@
 @section('content')
 
 <form
-action="/transaccion" method="POST"
+action="/transaccion" method="POST" enctype="multipart/form-data"
 class="row g-3 needs-validation" novalidate>
     @csrf
 
 
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idtipodetransaccion</label>
-        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="escribe tu respuesta" required>
+        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="1" required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -20,7 +20,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idmunicipio</label>
-        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="escribe tu respuesta" required>
+        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="1"  required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -44,7 +44,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">monto</label>
-        <input type="text" class="form-control" id="monto" name="monto" value="escribe tu respuesta" required>
+        <input type="text" class="form-control" id="monto" name="monto" value="1"  required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -52,7 +52,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentaorigen</label>
-        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="escribe tu respuesta" required>
+        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="1"  required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -60,7 +60,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentadestino</label>
-        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="escribe tu respuesta" required>
+        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="1"  required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -79,6 +79,15 @@ class="row g-3 needs-validation" novalidate>
         </div>
       </div>
     </div>
+
+    <br>
+
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">cargar imagen</label>
+        <input id="imagen" type="file"   name="imagen"  required>
+
+
+
     <div class="col-12">
       <button class="btn btn-primary" type="submit">Guardar</button>
     </div>

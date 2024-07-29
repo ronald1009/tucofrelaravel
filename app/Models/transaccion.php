@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class transaccion extends Model
 {
+
+    protected $table = "transaccion";
+
+
     use HasFactory;
+
+
 }

@@ -12,7 +12,8 @@ class transaccionController extends Controller
      */
     public function index()
     {
-        //
+        $course = transaccion::all();
+        return view('transaccion.index', compact('course'));
     }
 
     /**
@@ -36,6 +37,9 @@ class transaccionController extends Controller
         $course-> monto  = $request ->input('monto');
         $course-> idcuentaorigen  = $request ->input('idcuentaorigen');
         $course-> idcuentadestino  = $request ->input('idcuentadestino');
+        if($request->hasFile('imagen')){
+            $course->imagen = $request->file('imagen')->store('public/transaccion');
+        }
         $course-> save();
         return 'guardado con exito';
 
