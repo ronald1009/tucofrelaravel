@@ -1,21 +1,19 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'crear transaccion'); ?>
 
-@section('title', 'crear transaccion')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <br>
-<h3 class="text-center">CREAR TRANSACCION</h3>
+<h3 class="text-center">CONSULTA DE TRANSACCION</h3>
 
 <form
-action="/transaccion" method="POST" enctype="multipart/form-data"
+ enctype="multipart/form-data"
 class="row g-3 needs-validation" novalidate>
-    @csrf
+    <?php echo csrf_field(); ?>
 
 
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idtipodetransaccion</label>
-        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="1" required>
+        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="<?php echo e($transaccion->idtipodetransaccion); ?>" required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -23,7 +21,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idmunicipio</label>
-        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="1"  required>
+        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="<?php echo e($transaccion->idmunicipio); ?>"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -31,7 +29,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">fecha</label>
-        <input type="date" class="form-control" id="fecha"  name="fecha" value="escribe tu respuesta" required>
+        <input type="text" class="form-control" id="fecha"  name="fecha" value="<?php echo e($transaccion->fecha); ?>" required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -39,7 +37,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">hora</label>
-        <input type="time" class="form-control" id="hora"  name="hora" value="escribe tu respuesta" required>
+        <input type="text" class="form-control" id="hora"  name="hora" value="<?php echo e($transaccion->hora); ?>" required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -47,7 +45,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">monto</label>
-        <input type="number" class="form-control" id="monto" name="monto" value="1"  required>
+        <input type="text" class="form-control" id="monto" name="monto" value="<?php echo e($transaccion->monto); ?>"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -55,7 +53,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentaorigen</label>
-        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="1"  required>
+        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="<?php echo e($transaccion->idcuentaorigen); ?>"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -63,7 +61,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentadestino</label>
-        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="1"  required>
+        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="<?php echo e($transaccion->idcuentadestino); ?>"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -73,7 +71,7 @@ class="row g-3 needs-validation" novalidate>
 
     <div class="col-12">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required disabled>
         <label class="form-check-label" for="invalidCheck">
           Acepto terminos y condiciones
         </label>
@@ -87,15 +85,17 @@ class="row g-3 needs-validation" novalidate>
 
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">cargar imagen</label>
-        <input id="imagen" type="file"   name="imagen"  required>
+        <input id="imagen" type="file"   name="imagen"  required disabled>
 
 
 
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">Guardar</button>
-      <br><br/>
+
+    <br/>
       <a href="/transaccion" class="btn btn-dark">Volver</a>
     </div>
   </form>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\proyectolaravel\tucofre-app\resources\views/transaccion/show.blade.php ENDPATH**/ ?>

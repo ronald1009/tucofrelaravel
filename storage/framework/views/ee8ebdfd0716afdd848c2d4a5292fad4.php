@@ -1,21 +1,21 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'crear transaccion'); ?>
 
-@section('title', 'crear transaccion')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <br>
-<h3 class="text-center">CREAR TRANSACCION</h3>
+<h3 class="text-center">EDITAR INFORMACION DE TRANSACCION</h3>
 
 <form
-action="/transaccion" method="POST" enctype="multipart/form-data"
+action="/transaccion" method="PUT" enctype="multipart/form-data"
 class="row g-3 needs-validation" novalidate>
-    @csrf
+
+    <?php echo method_field('PUT'); ?>
+    <?php echo csrf_field(); ?>
 
 
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idtipodetransaccion</label>
-        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="1" required>
+        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="1" required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -23,7 +23,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idmunicipio</label>
-        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="1"  required>
+        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="1"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -55,7 +55,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentaorigen</label>
-        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="1"  required>
+        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="1"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -63,7 +63,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentadestino</label>
-        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="1"  required>
+        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="1"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -98,4 +98,6 @@ class="row g-3 needs-validation" novalidate>
     </div>
   </form>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\proyectolaravel\tucofre-app\resources\views/transaccion/edit.blade.php ENDPATH**/ ?>

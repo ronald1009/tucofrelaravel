@@ -13,5 +13,7 @@ class transaccion extends Model
 
     use HasFactory;
 
+    protected $fillabe = ['fecha', 'hora', 'monto', 'imagen'];
+
 
 }

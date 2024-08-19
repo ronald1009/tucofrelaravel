@@ -12,8 +12,8 @@ class transaccionController extends Controller
      */
     public function index()
     {
-        $course = transaccion::all();
-        return view('transaccion.index', compact('course'));
+        $transaccion = transaccion::all();
+        return view('transaccion.index', compact('transaccion'));
     }
 
     /**
@@ -29,19 +29,20 @@ class transaccionController extends Controller
      */
     public function store(Request $request)
     {
-        $course = new transaccion();
-        $course-> idtipodetransaccion  = $request ->input('idtipodetransaccion');
-        $course-> idmunicipio  = $request ->input('idmunicipio');
-        $course-> fecha  = $request ->input('fecha');
-        $course-> hora  = $request ->input('hora');
-        $course-> monto  = $request ->input('monto');
-        $course-> idcuentaorigen  = $request ->input('idcuentaorigen');
-        $course-> idcuentadestino  = $request ->input('idcuentadestino');
+        $transaccion = new transaccion();
+        $transaccion-> idtipodetransaccion  = $request ->input('idtipodetransaccion');
+        $transaccion-> idmunicipio  = $request ->input('idmunicipio');
+        $transaccion-> fecha  = $request ->input('fecha');
+        $transaccion-> hora  = $request ->input('hora');
+        $transaccion-> monto  = $request ->input('monto');
+        $transaccion-> idcuentaorigen  = $request ->input('idcuentaorigen');
+        $transaccion-> idcuentadestino  = $request ->input('idcuentadestino');
         if($request->hasFile('imagen')){
-            $course->imagen = $request->file('imagen')->store('public/transaccion');
+            $transaccion->imagen = $request->file('imagen')->store('public/transaccion');
         }
-        $course-> save();
-        return 'guardado con exito';
+        $transaccion-> save();
+
+        return redirect('transaccion');
 
     }
 
@@ -50,7 +51,8 @@ class transaccionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $transaccion = transaccion::find($id);
+        return view('transaccion.show', compact('transaccion'));
     }
 
     /**
@@ -58,7 +60,8 @@ class transaccionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $transaccion = transaccion::find($id);
+        return view('transaccion.edit',compact('transaccion') );
     }
 
     /**
@@ -66,7 +69,12 @@ class transaccionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $transaccion = transaccion::find($id);
+        $transaccion->fill($request->excep('imagen'));
+        if($request->hasfile('imagen'));
+        $transaccion->imagen = $request->file('imagen')->store('public/transaccion');
+        $transaccion->save();
+        return 'Transaccion Actualizada';
     }
 
     /**
@@ -74,6 +82,9 @@ class transaccionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $transaccion = transaccion::find($id);
+        $transaccion->delete();
+        return redirect('transaccion');
+
     }
 }

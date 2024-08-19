@@ -1,8 +1,6 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'crear transaccion'); ?>
 
-@section('title', 'crear transaccion')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <br>
 <h3 class="text-center">CREAR TRANSACCION</h3>
@@ -10,7 +8,7 @@
 <form
 action="/transaccion" method="POST" enctype="multipart/form-data"
 class="row g-3 needs-validation" novalidate>
-    @csrf
+    <?php echo csrf_field(); ?>
 
 
     <div class="col-md-4">
@@ -98,4 +96,6 @@ class="row g-3 needs-validation" novalidate>
     </div>
   </form>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\proyectolaravel\tucofre-app\resources\views/transaccion/create.blade.php ENDPATH**/ ?>
