@@ -33,7 +33,7 @@
                 <form method="POST" action="<?php echo e(route('transaccion.destroy', $transaccion->id)); ?>">
                     <?php echo method_field('DELETE'); ?>
                     <?php echo csrf_field(); ?>
-                    <button class="btn btn-primary" type="submit">Eliminar Transaccion</button>
+                    <button class="btn btn-danger" type="submit">Eliminar Transaccion</button>
                 </form>
             </div>
 

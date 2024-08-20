@@ -6,7 +6,7 @@
 <h3 class="text-center">EDITAR INFORMACION DE TRANSACCION</h3>
 
 <form
-action="/transaccion" method="PUT" enctype="multipart/form-data"
+action="/transaccion/<?php echo e($transaccion->id); ?>" method="POST" enctype="multipart/form-data"
 class="row g-3 needs-validation" novalidate>
 
     <?php echo method_field('PUT'); ?>
@@ -15,7 +15,7 @@ class="row g-3 needs-validation" novalidate>
 
     <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idtipodetransaccion</label>
-        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="1" required disabled>
+        <input type="text" class="form-control" id="idtipodetransaccion"  name="idtipodetransaccion" value="<?php echo e($transaccion->idtipodetransaccion); ?>" required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -23,7 +23,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idmunicipio</label>
-        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="1"  required disabled>
+        <input type="text" class="form-control" id="idmunicipio"  name="idmunicipio" value="<?php echo e($transaccion->idmunicipio); ?>"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -31,7 +31,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">fecha</label>
-        <input type="date" class="form-control" id="fecha"  name="fecha" value="escribe tu respuesta" required>
+        <input type="date" class="form-control" id="fecha"  name="fecha" value="<?php echo e($transaccion->fecha); ?>" required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -39,7 +39,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">hora</label>
-        <input type="time" class="form-control" id="hora"  name="hora" value="escribe tu respuesta" required>
+        <input type="time" class="form-control" id="hora"  name="hora" value="<?php echo e($transaccion->hora); ?>" required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -47,7 +47,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">monto</label>
-        <input type="number" class="form-control" id="monto" name="monto" value="1"  required>
+        <input type="number" class="form-control" id="monto" name="monto" value= "<?php echo e($transaccion->monto); ?>" required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -55,7 +55,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentaorigen</label>
-        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="1"  required disabled>
+        <input type="text" class="form-control" id="idcuentaorigen"  name="idcuentaorigen"  value="<?php echo e($transaccion->idcuentaorigen); ?>"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -63,7 +63,7 @@ class="row g-3 needs-validation" novalidate>
 
       <div class="col-md-4">
         <label for="validationCustom01" class="form-label">idcuentadestino</label>
-        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="1"  required disabled>
+        <input type="text" class="form-control" id="idcuentadestino"  name="idcuentadestino" value="<?php echo e($transaccion->idcuentadestino); ?>"  required disabled>
         <div class="valid-feedback">
           Looks good!
         </div>
