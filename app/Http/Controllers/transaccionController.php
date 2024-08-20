@@ -70,11 +70,13 @@ class transaccionController extends Controller
     public function update(Request $request, string $id)
     {
         $transaccion = transaccion::find($id);
-        $transaccion->fill($request->excep('imagen'));
+        $transaccion-> fecha  = $request ->input('fecha');
+        $transaccion-> hora  = $request ->input('hora');
+        $transaccion-> monto  = $request ->input('monto');
         if($request->hasfile('imagen'));
         $transaccion->imagen = $request->file('imagen')->store('public/transaccion');
         $transaccion->save();
-        return 'Transaccion Actualizada';
+        return redirect('transaccion');
     }
 
     /**
